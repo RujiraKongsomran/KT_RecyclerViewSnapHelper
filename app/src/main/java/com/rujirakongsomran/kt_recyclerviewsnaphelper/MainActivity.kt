@@ -3,6 +3,7 @@ package com.rujirakongsomran.kt_recyclerviewsnaphelper
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import com.rujirakongsomran.kt_recyclerviewsnaphelper.adapter.ExampleAdapter
 import com.rujirakongsomran.kt_recyclerviewsnaphelper.databinding.ActivityMainBinding
 import com.rujirakongsomran.kt_recyclerviewsnaphelper.model.ExampleItem
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         val exampleList = generateDummyList(500)
         binding.recyclerView.adapter = ExampleAdapter(exampleList)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(binding.recyclerView)
         binding.recyclerView.setHasFixedSize(true)
 
     }
